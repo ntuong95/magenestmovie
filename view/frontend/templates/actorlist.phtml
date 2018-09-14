@@ -1,0 +1,22 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$connection=$objectManager->get('Magento\Framework\App\ResourceConnection')
+->getConnection('\Magento\Framework\App\ResourceConnection::DEFAULT_CONNECTION');
+$result = $connection->fetchAll("select magenest_movie.name, GROUP_CONCAT(magenest_actor.name SEPARATOR ', ') AS Actors
+FROM magenest_movie INNER JOIN magenest_movie_actor INNER JOIN magenest_actor 
+WHERE magenest_movie.movie_id = magenest_movie_actor.movie_id AND magenest_movie_actor.actor_id = magenest_actor.actor_id 
+GROUP BY magenest_movie.name");
+
+//echo "<pre>";
+//print_r($result);
+
+echo "<table border=1><tr><th>Movie</th><th>Actors</th></tr>";
+    foreach ($result as $row)
+    {
+        echo "<tr align=center>";
+        echo '<td>' . $row['name'] . '</td>';
+        echo '<td>' . $row['Actors'] . '</td>';
+        echo '</tr>';
+    }
+echo "</table>";
+?>

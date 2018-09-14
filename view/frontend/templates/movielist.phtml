@@ -1,0 +1,18 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$model=$objectManager->create('Magenest\Movie\Model\MovieList');
+$datacollection=$model->getCollection();
+
+echo "<table border=1><tr align=center><th>Movie ID</th><th>Movie Name</th><th>Description</th><th>Movie Rating</th><th>Director name</th></tr>";
+foreach ($datacollection as $data) {
+    echo "<tr align=center>";
+    echo "<td>".$data->getid()."</td>";
+    echo "<td>".$data->getname()."</td>";
+    echo "<td>".$data->getdescription()."</td>";
+    echo "<td>".$data->getrating()."</td>";
+    /*echo "<td>".$data->getdirector_id()."</td>";*/
+    echo "<td>".$data->getdirectorname()."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?>
