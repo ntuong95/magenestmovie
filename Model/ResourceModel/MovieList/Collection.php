@@ -5,7 +5,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 {
     protected function _construct()
     {
-        $this->_init('Magenest\Movie\Model\MovieList','Magenest\Movie\Model\ResourceModel\MovieList');
+        $this->_init('Magenest\Movie\Model\MovieList', 'Magenest\Movie\Model\ResourceModel\MovieList');
     }
 
     protected function _initSelect()
@@ -18,25 +18,4 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
             ['name AS directorname'] // '*' define that you want all column of 2nd table. if you want some particular column then you can define as ['column1','column2']
         );
     }
-
-//    protected function _initSelect()
-//    {
-//        parent::_initSelect();
-//
-//        $this->getSelect(
-//        )->joinLeft(
-//            ['secondTable' => $this->getTable('magenest_director')],
-//            'main_table.director_id = secondTable.director_id',
-//            ['name']
-//        )->joinLeft(
-//            ['thirdTable' => $this->getTable('magenest_movie_actor')],
-//            'main_table.movie_id = thirdTable.actor_id',
-//            []
-//        )->joinLeft(
-//            ['fourthtable' => $this->getTable('magenest_actor')],
-//            'fourthtable.actor_id = thirdTable.movie_id',
-//            ['name']
-//            /*['movie_id']*/
-//        );
-//    }
 }

@@ -16,16 +16,45 @@
                    sortOrder="1" showInDefault="1" showInWebsite="1"
                    showInStore="1">
                 <label>Magenest Movie</label>
-                <field id="is_enabled" translate="label"
-                       type="select" sortOrder="10" showInDefault="1"
+                <field id="text_field" translate="label"
+                       type="text" sortOrder="10" showInDefault="1"
                        showInWebsite="1" showInStore="1">
-                    <label>Is Enabled</label>
+                    <label>Text Field</label>
+                </field>
+                <field id="is_enabled" translate="label"
+                       type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>
+                        <![CDATA[Yes/No_Field_<font color="#FF0000">abcd</font>]]>
+                    </label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="header_title" translate="label"
-                       type="text" sortOrder="20" showInDefault="1"
+                <field id="movie_selection" translate="label"
+                       type="select" sortOrder="30" showInDefault="1"
                        showInWebsite="1" showInStore="1">
-                    <label>Header title</label>
+                    <label>Custom Select Field</label>
+                    <source_model>Magenest\Movie\Model\Config\Source\Relation</source_model>
+                </field>
+                <field id="text_field_movie" translate="label"
+                       type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Rows in table “magenest_movie”</label>
+                    <frontend_model>Magenest\Movie\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="text_field_actor" translate="label"
+                       type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <depends>
+                        <field id="movie/moviepage/movie_selection">1</field>
+                    </depends>
+                    <label>Rows in table “magenest_actor”</label>
+                    <frontend_model>Magenest\Movie\Block\System\Config\Form\Field\Disableactor</frontend_model>
+                </field>
+                <field id="reload_button" translate="label"
+                       type="button" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Button Field</label>
+                    <frontend_model>Magenest\Movie\Block\System\Config\Form\Button\Reload</frontend_model>
                 </field>
             </group>
         </section>
