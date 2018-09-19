@@ -19,4 +19,7 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Director</argument>
         </arguments>
     </virtualType>
+    <!--<type name="\Magento\Customer\Model\Data\Customer">-->
+        <!--<plugin name="intercept_firstname" type="Magenest\Movie\Plugin\InterceptFirstname" />-->
+    <!--</type>-->
 </config>
