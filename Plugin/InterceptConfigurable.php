@@ -7,14 +7,15 @@
  */
 namespace Magenest\Movie\Plugin;
 
-/**change customer's firstname to Magenest when saved*/
+/**change product name to child product's name, works with modified image alt, else use $result['sku']*/
+/**$item->_children[0]->_origData["name"] is possible replacement*/
 class InterceptConfigurable {
 
     public function aroundGetItemData($subject, $proceed, $item)
     {
         $result = $proceed($item);
         if($item->getProduct()->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
-            $result['product_name'] = $result["product_sku"];
+            $result['product_name'] = $result["product_image"]["alt"];
         }
         return $result;
     }
