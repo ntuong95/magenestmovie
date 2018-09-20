@@ -19,7 +19,9 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Movie\Model\ResourceModel\Director</argument>
         </arguments>
     </virtualType>
-    <!--<type name="\Magento\Customer\Model\Data\Customer">-->
-        <!--<plugin name="intercept_firstname" type="Magenest\Movie\Plugin\InterceptFirstname" />-->
-    <!--</type>-->
+    <type name="Magento\Checkout\CustomerData\AbstractItem">
+        <plugin name="intercept_config_product" type="Magenest\Movie\Plugin\InterceptConfigurable" />
+    </type>
+    <!--<preference for="Magento\Checkout\CustomerData\DefaultItem" type="Magenest\Movie\Model\OverrideName"/>-->
+    <preference for="Magento\ConfigurableProduct\CustomerData\ConfigurableItem" type="Magenest\Movie\Model\OverrideImage"/>
 </config>
