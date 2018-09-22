@@ -1,0 +1,40 @@
+<div class="fieldset-wrapper-title">
+    <strong data-bind="css: {'admin__collapsible-title': collapsible,
+                      title: !collapsible,
+                      '_changed': changed,
+                      '_loading': loading,
+                      '_error': error}" class="title">
+        Module Information
+    </strong>
+</div>
+<br>
+<div style="width: 50%; float:left">
+    <p><strong>Number of modules: <?php echo $block->getModuleCount(); ?><br>
+Third party modules: <?php echo $block->getThirdPartyModuleCount(); ?></strong></p>
+<!--<p>Number of customers: --><?php //echo $block->getCustomerCount(); ?><!--</p>-->
+</div>
+
+<div style="width: 50%; float:right">
+    <table class="admin__table-secondary">
+        <tr>
+            <th><?php echo __('Customers') ?></th>
+            <td><?php echo $block->getCustomerCount(); ?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Products') ?></th>
+            <td><?php echo $block->getProductCount(); ?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Orders') ?></th>
+            <td><?php echo $block->getOrderCount(); ?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Invoices') ?></th>
+            <td><?php echo $block->getInvoiceCount(); ?></td>
+        </tr>
+        <tr>
+            <th><?php echo __('Credit Memos') ?></th>
+            <td><?php echo $block->getMemoCount(); ?></td>
+        </tr>
+    </table>
+</div>

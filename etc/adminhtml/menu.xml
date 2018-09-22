@@ -31,5 +31,19 @@
              action="magenest/actor"
              resource="Magenest_Movie::actor"
         />
+        <add id="Magenest_Movie::backend"
+             title="Backend Test"
+             module="Magenest_Movie"
+             sortOrder="40"
+             resource="Magenest_Movie::movie"
+             parent="Magenest_Movie::home"
+        />
+        <add id="Magenest_Movie::backendinfo"
+             title="Information"
+             module="Magenest_Movie"
+             resource="Magenest_Movie::backend"
+             parent="Magenest_Movie::backend"
+             action="magenest/backend"
+        />
     </menu>
 </config>

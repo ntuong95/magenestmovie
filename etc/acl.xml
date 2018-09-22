@@ -18,6 +18,7 @@
                     <resource id="Magenest_Movie::movie" title="Movies" sortOrder="10"/>
                     <resource id="Magenest_Movie::director" title="Directors" sortOrder="20"/>
                     <resource id="Magenest_Movie::acror" title="Actors" sortOrder="30"/>
+                    <resource id="Magenest_Movie::backendinfo" title="Backend Info" sortOrder="40"/>
                 </resource>
             </resource>
         </resources>
