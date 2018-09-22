@@ -22,12 +22,15 @@ class Index extends \Magento\Backend\App\Action{
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Magenest_Movie:movie');
-        $resultPage->addBreadcrumb(__('Movie'),__('Movie'));
-        $resultPage->addBreadcrumb(__('Manage Movies'), __('Manage Movies'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Movies'));
-        return $resultPage;
+//        old grid method
+//        $resultPage = $this->resultPageFactory->create();
+//        $resultPage->setActiveMenu('Magenest_Movie:movie');
+//        $resultPage->addBreadcrumb(__('Movie'),__('Movie'));
+//        $resultPage->addBreadcrumb(__('Manage Movies'), __('Manage Movies'));
+//        $resultPage->getConfig()->getTitle()->prepend(__('Movies'));
+//        return $resultPage;
+        $this->_view->loadLayout();
+        $this->_view->renderLayout();
     }
     protected function _isAllowed()
     {

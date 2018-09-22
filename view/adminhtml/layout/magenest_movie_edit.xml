@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <update handle="editor"/>
     <body>
         <referenceContainer name="content">
-            <referenceContainer name="content">
-                <block class="Magenest\Movie\Block\Adminhtml\Movie\Edit" name="magenest_movie_edit"/>
-            </referenceContainer>
+            <uiComponent name="movie_movie_edit"/>
         </referenceContainer>
     </body>
 </page>

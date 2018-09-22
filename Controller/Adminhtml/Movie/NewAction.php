@@ -2,40 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: tuong-linux
- * Date: 17/09/2018
- * Time: 08:08
+ * Date: 22/09/2018
+ * Time: 08:24
  */
 namespace Magenest\Movie\Controller\Adminhtml\Movie;
 
+use Magenest\Movie\Model\Movie;
 use Magento\Backend\App\Action;
-use Magento\Backend\App\Action\Context;
-use Magento\Backend\Model\View\Result\ForwardFactory;
 
-class NewAction extends Action{
-    /**
-     * Redirect result factory
-     *
-     * @var \Magento\Backend\Model\View\Result\ForwardFactory
-     */
-    public $resultForwardFactory;
-
-    public function __construct(
-        Context $context,
-        ForwardFactory $resultForwardFactory
-    )
-    {
-        $this->resultForwardFactory = $resultForwardFactory;
-        parent::__construct($context);
-    }
-    /**
-     * forward to edit
-     *
-     * @return \Magento\Backend\Model\View\Result\Forward
-     */
+class NewAction extends Action
+{
     public function execute()
     {
-        $resultForward = $this->resultForwardFactory->create();
-        $resultForward->forward('edit');
-        return $resultForward;
+        $this->_view->loadLayout();
+        $this->_view->renderLayout();
+
+        $movieDatas = $this->getRequest()->getParam('movie');
+        if(is_array($movieDatas)) {
+            $movie = $this->_objectManager->create(Movie::class);
+            $movie->setData($movieDatas)->save();
+            $resultRedirect = $this->resultRedirectFactory->create();
+            return $resultRedirect->setPath('*/*/index');
+        }
     }
 }

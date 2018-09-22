@@ -2,15 +2,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!--<referenceContainer name="page.main.actions">-->
-            <!--<block class="Magento\Backend\Block\Template"-->
-                   <!--name="component_buttons" template="Magenest_Movie::movie/toolbar/button.phtml"/>-->
-        <!--</referenceContainer>-->
         <referenceContainer name="content">
-            <block class="Magenest\Movie\Block\Adminhtml\Movie" name="adminhtml.block.movie.movie.container">
-                <block class="Magenest\Movie\Block\Adminhtml\Movie\Grid"
-                       name="adminhtml.block.movie.movie.grid" as="grid" />
-            </block>
+            <uiComponent name="movie_movie_listing"/>
         </referenceContainer>
     </body>
 </page>
