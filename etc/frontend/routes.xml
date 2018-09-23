@@ -5,5 +5,8 @@
         <route id="movie" frontName="movie">
             <module name="Magenest_Movie" />
         </route>
+        <route id="frontend" frontName="frontend">
+            <module name="Magenest_Movie" />
+        </route>
     </router>
 </config>

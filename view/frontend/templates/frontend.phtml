@@ -1,0 +1,90 @@
+<div id="test">
+<button type ="button" id="bt1">JQuery</button><br><br>
+</div>
+<div id="bt2">
+    <button class="primary">Alert Modal</button>
+</div>
+<div id="login_modal">
+    <button class="login">Login</button>
+</div>
+
+<!--hide login form by default-->
+<div id="loginblock" class="block block-customer-login" style="display:none;">
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <form class="form form-login"
+              action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <?= $block->getBlockHtml('formkey') ?>
+            <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                <div class="field email required">
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                    <div class="control">
+                        <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?= $block->getChildHtml('form_additional_info') ?>
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
+                    <div class="secondary"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([
+        'jquery', 'jquery/ui','Magento_Ui/js/modal/alert'
+    ],
+        function($){ $("#bt1").click(function() {
+        alert("Test Jquery!");
+            });
+    });
+</script>
+
+<script type="text/javascript">// <![CDATA[
+    require([
+            'jquery','Magento_Ui/js/modal/alert'
+        ],
+        function($, alert) { $("#bt2").on('click', 'button.primary', function(event){
+            alert({
+                title: 'Testing 123',
+                content: 'Test modal alert'
+            })
+            })
+        });
+    // ]]>
+</script>
+
+<!--call login form on button press-->
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function($, modal) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Login modal',
+                modalClass: 'custom-modal',
+            };
+
+            var popup = modal(options, $('#loginblock'));
+
+            $("#login_modal").click(function () {
+                    $("#loginblock").modal('openModal');
+                    $(".modal-footer").hide(); /*hide footer and button*/
+                }
+            );
+        })
+</script>
