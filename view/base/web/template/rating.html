@@ -1,0 +1,19 @@
+<head>
+    <style>
+        .rating-box {
+            background: url('http://localhost/magento/pub/static/adminhtml/Magento/backend/en_US/images/rating-bg.png') repeat-x 0 0;
+            font-size: 0;
+            height: 13px;
+            line-height: 0;
+            margin: 4px 0 0;
+            width: 86px;
+        }
+        .rating {
+            background: url('http://localhost/magento/pub/static/adminhtml/Magento/backend/en_US/images/rating-bg.png') repeat-x 0 -13px;
+            height: 13px;
+        }
+    </style>
+</head>
+<div class="rating-box" id="aaa">
+    <div class="rating-box rating" data-bind="style: { 'width': $col.getLabel($row()) * 10 + '%'}"></div>
+</div>
